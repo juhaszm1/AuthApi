@@ -85,5 +85,32 @@ namespace AuthApi.Controllers
             }
 
         }
+
+        [HttpGet("allUsersAllRoles")]
+        public async Task<IActionResult> AllUsersAndRoles()
+
+        {
+            try
+            {
+                var users = await _context.Users.Include(u => u.Roles).ToListAsync();
+
+                if (users is null)
+                {
+                    return StatusCode(404, new { message = "Nincs találat" });
+                }
+                else if (users is not null)
+                {
+                    return StatusCode(200, new { message = "Lekérdezve", result = users });
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(400, new { message = "Hiba" });
+            }
+            
+
+        }
     }
 }
