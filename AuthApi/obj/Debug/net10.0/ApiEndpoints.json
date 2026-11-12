@@ -1,6 +1,36 @@
 [
   {
     "ContainingType": "AuthApi.Controllers.RolesController",
+    "Method": "AllRoles",
+    "RelativePath": "roles/allRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthApi.Controllers.RolesController",
+    "Method": "Rolesbyid",
+    "RelativePath": "roles/byid",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthApi.Controllers.RolesController",
+    "Method": "DeleteRoles",
+    "RelativePath": "roles/deleteRoles",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthApi.Controllers.RolesController",
     "Method": "NewRole",
     "RelativePath": "roles/newRole",
     "HttpMethod": "POST",
@@ -13,6 +43,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthApi.Controllers.RolesController",
+    "Method": "UpdateRoles",
+    "RelativePath": "roles/updateRoles",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

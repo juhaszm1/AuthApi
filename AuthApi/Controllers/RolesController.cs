@@ -70,18 +70,74 @@ namespace AuthApi.Controllers
 
         }
         [HttpGet("byid")]
-        public async Task<ActionResult> Rolesbyid()
+        public async Task<ActionResult> Rolesbyid(Guid id)
         {
             try
             {
-                var id = await _context.Roles.ToListAsync();
+                var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
 
-                if (id is null)
+                if (user is null)
                 {
-                    return StatusCode(400, new { message = "Hiba" });
+                    return StatusCode(404, new { message = "Nincs találat" });
+                }
+                else if (user is not null)
+                {
+                    return StatusCode(200, new { message = "Lekérdezve", result = user });
                 }
 
-                return StatusCode(200, new { message = "Lekérdezve", result = id });
+                return StatusCode(400, new { message = "Hiba" });
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(400, new { message = exception.Message });
+            }
+
+        }
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateRole([FromQuery] Guid id, [FromBody] UpdateRoleDto updateRoleDto)
+        {
+            try
+            {
+                var role = await _context.Roles.FirstOrDefaultAsync(r => r.Id == id);
+
+                if (role is null)
+                {
+                    return StatusCode(404, new { message = "Nincs találat" });
+                }
+                else
+                {
+                    role.Name = updateRoleDto.Name;
+
+                    _context.Roles.Update(role);
+                    await _context.SaveChangesAsync();
+
+                    return StatusCode(200, new { message = "Frissítve", result = role });
+                }
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(400, new { message = exception.Message });
+            }
+        }
+
+        [HttpDelete("deleteRole")]
+        public async Task<IActionResult> DeleteRole([FromQuery] Guid id)
+        {
+            try
+            {
+                var role = await _context.Roles.FindAsync(id);
+
+                if (role is null)
+                {
+                    return StatusCode(404, new { message = "Nincs találat" });
+                }
+                else
+                {
+                    _context.Roles.Remove(role);
+                    await _context.SaveChangesAsync();
+
+                    return StatusCode(200, new { message = "Törölve", result = role });
+                }
             }
             catch (Exception exception)
             {
