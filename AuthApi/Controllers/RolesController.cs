@@ -2,6 +2,7 @@
 using AuthApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuthApi.Controllers
 {
@@ -39,11 +40,53 @@ namespace AuthApi.Controllers
 
             }
 
-            catch(Exception exception)
+            catch (Exception exception)
             {
-                return StatusCode(400, new {message = exception.Message});
+                return StatusCode(400, new { message = exception.Message });
             }
+
+
         }
 
+
+        [HttpGet("allRoles")]
+        public async Task<ActionResult> AllRoles()
+        {
+            try
+            {
+                var roles = await _context.Roles.ToListAsync();
+
+                if (roles is null)
+                {
+                    return StatusCode(400, new { message = "Hiba" });
+                }
+
+                return StatusCode(200, new { message = "Lekérdezve", result = roles });
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(400, new { message = exception.Message });
+            }
+
+        }
+        [HttpGet("byid")]
+        public async Task<ActionResult> Rolesbyid()
+        {
+            try
+            {
+                var id = await _context.Roles.ToListAsync();
+
+                if (id is null)
+                {
+                    return StatusCode(400, new { message = "Hiba" });
+                }
+
+                return StatusCode(200, new { message = "Lekérdezve", result = id });
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(400, new { message = exception.Message });
+            }
+        }
     }
 }
