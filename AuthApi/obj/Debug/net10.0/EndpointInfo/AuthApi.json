@@ -13,6 +13,38 @@
     }
   ],
   "paths": {
+    "/roles/newRole": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRoleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRoleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRoleDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/users/newUser": {
       "post": {
         "tags": [
@@ -146,6 +178,17 @@
   },
   "components": {
     "schemas": {
+      "NewRoleDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "NewUserDto": {
         "type": "object",
         "properties": {
@@ -195,6 +238,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Roles"
+    },
     {
       "name": "Users"
     }

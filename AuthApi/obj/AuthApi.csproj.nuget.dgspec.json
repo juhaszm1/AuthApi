@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juhaszm\\Desktop\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj": {}
+    "C:\\Users\\juhaszm\\source\\repos\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juhaszm\\Desktop\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj": {
+    "C:\\Users\\juhaszm\\source\\repos\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juhaszm\\Desktop\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj",
+        "projectUniqueName": "C:\\Users\\juhaszm\\source\\repos\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj",
         "projectName": "AuthApi",
-        "projectPath": "C:\\Users\\juhaszm\\Desktop\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj",
+        "projectPath": "C:\\Users\\juhaszm\\source\\repos\\AuthUserApi13Bcsop2-main\\AuthApi\\AuthApi.csproj",
         "packagesPath": "C:\\Users\\juhaszm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juhaszm\\Desktop\\AuthUserApi13Bcsop2-main\\AuthApi\\obj\\",
+        "outputPath": "C:\\Users\\juhaszm\\source\\repos\\AuthUserApi13Bcsop2-main\\AuthApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
